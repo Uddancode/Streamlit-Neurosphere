@@ -14,13 +14,13 @@ csv_data = []
 
 # Define emotion to product mapping
 emotion_to_products = {
-  "happy": ["Joyful Juice", "Cheerful Chocolate", "Happy Hoodie"],
-  "sad": ["Comfort Blanket", "Warm Tea", "Inspirational Book"],
-  "angry": ["Stress Ball", "Calming Tea", "Meditation App"],
-  "surprised": ["Exciting Gadgets", "Adventure Gear", "Surprise Box"],
-  "neutral": ["Laptop- www.google.com ❤️‍🔥", "Healthy Snacks", "Relaxing Music"],
-  "fear": ["Safety Kit", "Comfort Food", "Stress Relief Kit"],
-  "disgust": ["Refreshing Drink", "Cleanser", "Aromatherapy Kit"]
+  "happy": ["Minute maid fruit juice - https://www.walmart.com/ip/Minute-Maid-Premium-Mango-Punch-Fruit-Juice-59-fl-oz-Carton/187385053?classType=REGULAR&athbdg=L1600&from=/search", "Chocolate - https://www.walmart.com/ip/Ferrero-Rocher-Premium-Chocolate-Bar-Milk-Chocolate-Hazelnut-3-1-oz/260060982?classType=REGULAR&athbdg=L1600&from=/search", "Hoodies - https://www.walmart.com/ip/Cadmus-Men-s-Workout-Long-Sleeve-Fishing-shirts-UPF-50-Sun-Protection-Dry-Fit-Hoodies-1-Pack-096-White-Large/5027554790?classType=VARIANT&adsRedirect=true","Dress - https://www.walmart.com/search?q=dress","Chocolate - https://www.walmart.com/search?q=chocolate","Clothing -  https://www.walmart.com/cp/clothing/5438"],
+  "sad": ["comfort blanket - https://www.walmart.com/search?q=comfort+blanket", "Warm tea - https://www.walmart.com/search?q=warm+tea", "Inspirational books - https://www.walmart.com/search?q=inspirational+books"],
+  "angry": ["Stress ball - https://www.walmart.com/search?q=stress+ball", "Calming tea - https://www.walmart.com/search?q=calming+tea", "Mediataion Books - https://www.walmart.com/search?q=meditation+books","Water bottle - https://www.walmart.com/search?q=beautiful+beautiful+water+bottle"],
+  "surprised": ["Soft toys - https://www.walmart.com/search?q=soft+toys","Mobile - https://www.walmart.com/search?q=mobile", "Adventure gear - https://www.walmart.com/search?q=adventure+gear", "Surprise box -https://www.walmart.com/search?q=surprise+box","Handbags - https://www.walmart.com/search?q=handbags"],
+  "neutral": ["Earings-  https://www.walmart.com/search?q=earing%2014%20k%20gold%20yellow%20for%20wom%20e&typeahead=earin","Watch - https://www.walmart.com/search?q=watch" ,"Healthy Snacks - https://www.walmart.com/cp/health-inspired-snacks/6275730?q=healthy+snacks", "Soundbox - https://www.walmart.com/search?q=soundbox"],
+  "fear": ["Pepper Spray - https://www.walmart.com/search?q=pepper+spray","Safety kit - https://www.walmart.com/search?q=safety+kit","Taser - https://www.walmart.com/search?q=taser", "Comfort food- https://www.walmart.com/search?q=comfort+food", "Stress relief kit - https://www.walmart.com/search?q=stress+relief+kit"],
+  "disgust": ["Tissue paper - https://www.walmart.com/search?q=tissue+paper","Room freshener - https://www.walmart.com/search?q=room%20freshener", "Cleanser - https://www.walmart.com/search?q=cleanser", "Aromatherapy - https://www.walmart.com/search?q=aromatherapy"]
 }
 
 def detect_emotion(frame):
@@ -64,8 +64,8 @@ def detect_faces_and_emotions():
     cv2.putText(frame, emotion, (50, 50), font, 1, (0, 0, 255), 2, cv2.LINE_4)
     stframe.image(frame, channels="BGR")
 
-    st.write(f"*Emotion Detected:* {emotion}")
-    st.write("*Recommended Products:*")
+    st.write(f"Emotion Detected: {emotion}")
+    st.write("Recommended Products:")
     st.write(", ".join(products))
 
     # Button for saving image with unique key
@@ -107,9 +107,8 @@ def display_csv_data():
   else:
     st.write("No data available. Start detection to log emotions.")
 
-st.title("Welcome To NeuroSphere!!")
-st.write("This web app detects emotions from a live webcam feed and suggests products based on the detected emotion. To make your shopping experience happy and more reliable")
+st.title("Face Emotion Detection Web App")
+st.write("This web app detects emotions from a live webcam feed and suggests products based on the detected emotion.")
 
 if st.button("Start Detection", key="start_detection_button"):
   detect_faces_and_emotions()
-
